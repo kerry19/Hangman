@@ -1,2 +1,2 @@
 # Hangman
-simple hangman game
+simple hangman python game
