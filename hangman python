@@ -1,0 +1,36 @@
+import sys
+import string
+word= 'spoil'
+alpha = string.ascii_lowercase
+guessed = []
+wrong=[]
+for i in word:
+    print('_', end= ' ')
+
+turn= len(word)
+while turn >0:
+    print('You have {} turns'.format(turn))
+    print('\n',alpha)
+    guess = input('\n\nEnter letter ')
+
+    if guess in word:
+        guessed.append(guess)
+    else:
+        wrong.append(guess)
+        turn = turn -1
+        print('Thats not in my word!')
+    for i in word:
+        if i in guessed:
+            print(i, end=' ')
+        else:
+            
+            print('_', end=' ')
+    for i in alpha:
+        if i in guessed or i in wrong:
+            alpha=alpha.replace(i, '')
+    if turn == 0:
+        print('\nGame over. My word was {}'.format(word))
+        sys.exit()
+    elif len(guessed) == len(word):
+        print('\nYou win!')
+        sys.exit() 
